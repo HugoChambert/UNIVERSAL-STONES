@@ -260,4 +260,22 @@ document.addEventListener('DOMContentLoaded', () => {
       contactForm.reset();
     });
   }
+
+  const dropdownContactForm = document.getElementById('dropdown-contact-form');
+  if (dropdownContactForm) {
+    dropdownContactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const formData = new FormData(dropdownContactForm);
+      const name = formData.get('name');
+      const email = formData.get('email');
+      const message = formData.get('message');
+
+      const subject = encodeURIComponent(`Contact from ${name}`);
+      const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+
+      window.location.href = `mailto:info@example.com?subject=${subject}&body=${body}`;
+
+      dropdownContactForm.reset();
+    });
+  }
 });
