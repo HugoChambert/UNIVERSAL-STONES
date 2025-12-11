@@ -244,4 +244,28 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  const heroSection = document.querySelector('.hero');
+  if (heroSection) {
+    const cursorGlow = document.createElement('div');
+    cursorGlow.className = 'hero-cursor-glow';
+    heroSection.appendChild(cursorGlow);
+
+    heroSection.addEventListener('mouseenter', () => {
+      cursorGlow.style.opacity = '1';
+    });
+
+    heroSection.addEventListener('mouseleave', () => {
+      cursorGlow.style.opacity = '0';
+    });
+
+    heroSection.addEventListener('mousemove', (e) => {
+      const rect = heroSection.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      cursorGlow.style.left = `${x}px`;
+      cursorGlow.style.top = `${y}px`;
+    });
+  }
+
 });
