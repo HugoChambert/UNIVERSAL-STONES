@@ -306,14 +306,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
             this.speedX = this.baseSpeedX - Math.cos(angle) * force * 3;
             this.speedY = this.baseSpeedY - Math.sin(angle) * force * 3;
-
-            this.opacity = Math.min(1, this.opacity + force * 0.5);
-            this.size = Math.min(6, this.size + force * 2);
           } else {
             this.speedX += (this.baseSpeedX - this.speedX) * 0.1;
             this.speedY += (this.baseSpeedY - this.speedY) * 0.1;
-            this.opacity = Math.max(Math.random() * 0.5 + 0.3, this.opacity - 0.02);
-            this.size = Math.max(Math.random() * 3 + 1, this.size - 0.1);
           }
         } else {
           this.speedX = this.baseSpeedX;
