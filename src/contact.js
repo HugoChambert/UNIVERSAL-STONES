@@ -26,7 +26,8 @@ if (contactForm) {
     const subject = encodeURIComponent(`Contact from ${name}`);
     const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nPhone: ${phone || 'Not provided'}\n\nMessage:\n${message}`);
 
-    window.location.href = `mailto:info@example.com?subject=${subject}&body=${body}`;
+    const contactEmail = import.meta.env.VITE_CONTACT_EMAIL || 'hugo@universalstones.com';
+    window.location.href = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
 
     contactForm.reset();
   });
