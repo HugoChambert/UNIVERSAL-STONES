@@ -137,9 +137,49 @@ function loadSinks(category) {
   });
 }
 
+function initScrollAnimations() {
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.section, .feature-card, .stat-item, .project-card, .stone-item, .sink-item, .member-logo').forEach(el => {
+    el.classList.add('scroll-animate');
+    observer.observe(el);
+  });
+}
+
+function updateNavbarOnScroll() {
+  const navbar = document.querySelector('.navbar');
+  let lastScroll = 0;
+
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+
+    if (currentScroll > 100) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+
+    lastScroll = currentScroll;
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   loadStones('granite');
   loadSinks('stainless');
+  initScrollAnimations();
+  updateNavbarOnScroll();
 
   const stoneCategoryButtons = document.querySelectorAll('[data-category]');
   stoneCategoryButtons.forEach(button => {
@@ -147,6 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
       stoneCategoryButtons.forEach(btn => btn.classList.remove('active'));
       button.classList.add('active');
       loadStones(button.dataset.category);
+      setTimeout(initScrollAnimations, 100);
     });
   });
 
@@ -156,6 +197,7 @@ document.addEventListener('DOMContentLoaded', () => {
       sinkCategoryButtons.forEach(btn => btn.classList.remove('active'));
       button.classList.add('active');
       loadSinks(button.dataset.sinkCategory);
+      setTimeout(initScrollAnimations, 100);
     });
   });
 
