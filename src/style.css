@@ -675,10 +675,10 @@ body {
   align-items: center;
   justify-content: center;
   padding: 1.5rem;
-  background: var(--color-gray-light);
+  background: rgba(60, 40, 30, 0.6);
   border-radius: 8px;
   transition: all 0.3s ease;
-  border: 2px solid var(--color-gray-light);
+  border: 2px solid rgba(60, 40, 30, 0.8);
   min-height: 120px;
   text-decoration: none;
 }
