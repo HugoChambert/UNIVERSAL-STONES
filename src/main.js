@@ -157,7 +157,9 @@ function loadStones(category) {
     const item = document.createElement('div');
     item.className = 'stone-item';
     item.innerHTML = `
-      <img src="${stone.image}" alt="${stone.name}" loading="lazy">
+      <div class="stone-image-container">
+        <img src="${stone.image}" alt="${stone.name}" loading="lazy">
+      </div>
       <div class="stone-name">${stone.name}</div>
     `;
     grid.appendChild(item);
