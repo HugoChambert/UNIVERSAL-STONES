@@ -128,12 +128,19 @@ function loadSinks(category) {
   grid.innerHTML = '';
   const sinks = category === 'stainless' ? stainlessSteelSinks : ceramicSinks;
 
+  const sinkSvg = `
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M18 4h-2V3c0-.55-.45-1-1-1s-1 .45-1 1v1h-4V3c0-.55-.45-1-1-1s-1 .45-1 1v1H6C4.34 4 3 5.34 3 7v2c0 2.76 2.24 5 5 5v5c0 1.1.9 2 2 2h4c1.1 0 2-.9 2-2v-5c2.76 0 5-2.24 5-5V7c0-1.66-1.34-3-3-3zm1 5c0 1.65-1.35 3-3 3H8c-1.65 0-3-1.35-3-3V7c0-.55.45-1 1-1h12c.55 0 1 .45 1 1v2z"/>
+      <circle cx="12" cy="17" r="1"/>
+    </svg>
+  `;
+
   sinks.forEach(sink => {
     const item = document.createElement('div');
     item.className = 'sink-item';
     item.innerHTML = `
       <a href="${sink.pdf}" target="_blank" rel="noopener noreferrer" class="sink-link" aria-label="View ${sink.name} specifications">
-        <div class="sink-icon">▭</div>
+        <div class="sink-icon">${sinkSvg}</div>
         <div class="sink-name">${sink.name}</div>
       </a>
     `;
