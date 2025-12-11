@@ -15,20 +15,48 @@ document.querySelectorAll('.nav-link').forEach(link => {
 
 const contactForm = document.getElementById('contact-page-form');
 if (contactForm) {
-  contactForm.addEventListener('submit', (e) => {
+  contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
+
+    const submitButton = contactForm.querySelector('.form-submit-btn');
+    const originalButtonText = submitButton.textContent;
+    submitButton.textContent = 'Sending...';
+    submitButton.disabled = true;
+
     const formData = new FormData(contactForm);
     const name = formData.get('name');
     const email = formData.get('email');
     const phone = formData.get('phone');
     const message = formData.get('message');
 
-    const subject = encodeURIComponent(`Contact from ${name}`);
-    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nPhone: ${phone || 'Not provided'}\n\nMessage:\n${message}`);
+    try {
+      const apiUrl = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-contact-email`;
 
-    const contactEmail = import.meta.env.VITE_CONTACT_EMAIL || 'hugo@universalstones.com';
-    window.location.href = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          phone,
+          message
+        })
+      });
 
-    contactForm.reset();
+      if (response.ok) {
+        contactForm.reset();
+        alert('Thank you for contacting us! We will get back to you soon.');
+      } else {
+        throw new Error('Failed to send message');
+      }
+    } catch (error) {
+      console.error('Error sending message:', error);
+      alert('There was an error sending your message. Please try calling us at (540) 428-0093.');
+    } finally {
+      submitButton.textContent = originalButtonText;
+      submitButton.disabled = false;
+    }
   });
 }
