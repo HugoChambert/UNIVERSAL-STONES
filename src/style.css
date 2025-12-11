@@ -893,3 +893,157 @@ body {
     padding: 1.5rem;
   }
 }
+
+.faq-page {
+  min-height: 100vh;
+  background: var(--color-black);
+}
+
+.faq-hero {
+  background: linear-gradient(135deg, var(--color-gray) 0%, var(--color-black) 100%);
+  padding: 8rem 0 4rem;
+  text-align: center;
+  border-bottom: 3px solid var(--color-gold);
+}
+
+.faq-main {
+  padding: 5rem 0;
+}
+
+.faq-list {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.faq-item {
+  background: var(--color-gray);
+  border: 2px solid var(--color-gray-light);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.3s ease;
+}
+
+.faq-item:hover {
+  border-color: var(--color-gold);
+}
+
+.faq-item.active {
+  border-color: var(--color-gold);
+}
+
+.faq-question {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background: none;
+  border: none;
+  color: var(--color-gold);
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.faq-question:hover {
+  background: rgba(212, 175, 55, 0.1);
+}
+
+.faq-icon {
+  font-size: 2rem;
+  font-weight: 300;
+  color: var(--color-gold);
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+  margin-left: 1rem;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 500px;
+  padding: 0 2rem 1.5rem;
+}
+
+.faq-answer p {
+  color: var(--color-gold-light);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.warranty-link {
+  color: var(--color-gold);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  font-size: 1.1rem;
+}
+
+.warranty-link:hover {
+  color: var(--color-red);
+}
+
+.warranty-section {
+  background: var(--color-gray);
+  border: 2px solid var(--color-gold);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-top: 2rem;
+}
+
+.warranty-section h3 {
+  font-family: var(--font-heading);
+  color: var(--color-gold);
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.warranty-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.warranty-text p {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+  .faq-question {
+    font-size: 1.1rem;
+    padding: 1.2rem 1.5rem;
+  }
+
+  .faq-item.active .faq-answer {
+    padding: 0 1.5rem 1.2rem;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .warranty-section {
+    padding: 1.5rem;
+  }
+}
