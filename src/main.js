@@ -13,13 +13,13 @@ const interiorImages = [
   '/pic/Interior/10.webp'
 ];
 
-const exteriorImages = [
-  '/pic/Exterior/Annex Exterior.jpeg',
-  '/pic/Exterior/Boro.jpg',
-  '/pic/Exterior/Millcreek Exterior 2.jpg',
-  '/pic/Exterior/Old Georgetown Exterior.jpeg',
-  '/pic/Exterior/PARCEL8.jpg',
-  '/pic/Exterior/warf.jpg'
+const notableProjects = [
+  { name: 'Annex', image: '/pic/Exterior/Annex Exterior.jpeg' },
+  { name: 'Boro', image: '/pic/Exterior/Boro.jpg' },
+  { name: 'Millcreek', image: '/pic/Exterior/Millcreek Exterior 2.jpg' },
+  { name: 'Old Georgetown', image: '/pic/Exterior/Old Georgetown Exterior.jpeg' },
+  { name: 'Parcel 8', image: '/pic/Exterior/PARCEL8.jpg' },
+  { name: 'The Wharf', image: '/pic/Exterior/warf.jpg' }
 ];
 
 const graniteStones = [
@@ -133,12 +133,17 @@ function loadInteriorGallery() {
   });
 }
 
-function loadExteriorGallery() {
-  const gallery = document.getElementById('exterior-gallery');
-  exteriorImages.forEach(image => {
+function loadNotableProjects() {
+  const gallery = document.getElementById('notable-gallery');
+  notableProjects.forEach(project => {
     const item = document.createElement('div');
-    item.className = 'gallery-item';
-    item.innerHTML = `<img src="${image}" alt="Exterior work" loading="lazy">`;
+    item.className = 'notable-project-item';
+    item.innerHTML = `
+      <img src="${project.image}" alt="${project.name}" loading="lazy">
+      <div class="project-overlay">
+        <div class="project-name">${project.name}</div>
+      </div>
+    `;
     gallery.appendChild(item);
   });
 }
@@ -179,7 +184,7 @@ function loadSinks(category) {
 
 document.addEventListener('DOMContentLoaded', () => {
   loadInteriorGallery();
-  loadExteriorGallery();
+  loadNotableProjects();
   loadStones('granite');
   loadSinks('stainless');
 
