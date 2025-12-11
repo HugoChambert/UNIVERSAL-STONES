@@ -77,28 +77,28 @@ const marbleStones = [
 ];
 
 const stainlessSteelSinks = [
-  { name: 'US 103', pdf: '/Sink/Stainless-Steel/US 103.pdf' },
-  { name: 'US 105', pdf: '/Sink/Stainless-Steel/US 105.pdf' },
-  { name: 'US 204', pdf: '/Sink/Stainless-Steel/US 204.pdf' },
-  { name: 'US 206', pdf: '/Sink/Stainless-Steel/US 206.pdf' },
-  { name: 'US 2318', pdf: '/Sink/Stainless-Steel/US 2318.pdf' },
-  { name: 'US 301', pdf: '/Sink/Stainless-Steel/US 301.pdf' },
-  { name: 'US 307', pdf: '/Sink/Stainless-Steel/US 307.pdf' },
-  { name: 'US 309', pdf: '/Sink/Stainless-Steel/US 309.pdf' },
-  { name: 'US 3219', pdf: '/Sink/Stainless-Steel/US 3219.pdf' },
-  { name: 'US 905', pdf: '/Sink/Stainless-Steel/US 905.pdf' },
-  { name: 'US 905R', pdf: '/Sink/Stainless-Steel/US 905R.pdf' },
-  { name: 'US 907', pdf: '/Sink/Stainless-Steel/US 907.pdf' },
-  { name: 'US 907 R', pdf: '/Sink/Stainless-Steel/US 907 R.pdf' },
-  { name: 'US 3018', pdf: '/Sink/Stainless-Steel/US-3018.pdf' },
-  { name: 'US 3021 Apron', pdf: '/Sink/Stainless-Steel/US-3021 APRON.pdf' },
-  { name: 'US 3219 Equal', pdf: '/Sink/Stainless-Steel/US-3219 EQUAL.pdf' }
+  { name: 'US 103', image: '/Sink/Stainless-Steel/US-103.jpg', pdf: '/Sink/Stainless-Steel/US 103.pdf' },
+  { name: 'US 105', image: '/Sink/Stainless-Steel/US-105.jpg', pdf: '/Sink/Stainless-Steel/US 105.pdf' },
+  { name: 'US 204', image: '/Sink/Stainless-Steel/US-204.jpg', pdf: '/Sink/Stainless-Steel/US 204.pdf' },
+  { name: 'US 206', image: '/Sink/Stainless-Steel/US-206.jpg', pdf: '/Sink/Stainless-Steel/US 206.pdf' },
+  { name: 'US 2318', image: '/Sink/Stainless-Steel/US-2318.jpg', pdf: '/Sink/Stainless-Steel/US 2318.pdf' },
+  { name: 'US 301', image: '/Sink/Stainless-Steel/US-301.jpg', pdf: '/Sink/Stainless-Steel/US 301.pdf' },
+  { name: 'US 307', image: '/Sink/Stainless-Steel/US-307.jpg', pdf: '/Sink/Stainless-Steel/US 307.pdf' },
+  { name: 'US 309', image: '/Sink/Stainless-Steel/US-309.jpg', pdf: '/Sink/Stainless-Steel/US 309.pdf' },
+  { name: 'US 3219', image: '/Sink/Stainless-Steel/US-3219.jpg', pdf: '/Sink/Stainless-Steel/US 3219.pdf' },
+  { name: 'US 905', image: '/Sink/Stainless-Steel/US-905.jpg', pdf: '/Sink/Stainless-Steel/US 905.pdf' },
+  { name: 'US 905R', image: '/Sink/Stainless-Steel/US-905R.jpg', pdf: '/Sink/Stainless-Steel/US 905R.pdf' },
+  { name: 'US 907', image: '/Sink/Stainless-Steel/US-907.jpg', pdf: '/Sink/Stainless-Steel/US 907.pdf' },
+  { name: 'US 907 R', image: '/Sink/Stainless-Steel/US-907R.jpg', pdf: '/Sink/Stainless-Steel/US 907 R.pdf' },
+  { name: 'US 3018', image: '/Sink/Stainless-Steel/US-3018.jpg', pdf: '/Sink/Stainless-Steel/US-3018.pdf' },
+  { name: 'US 3021 Apron', image: '/Sink/Stainless-Steel/US-3021-APRON.jpg', pdf: '/Sink/Stainless-Steel/US-3021 APRON.pdf' },
+  { name: 'US 3219 Equal', image: '/Sink/Stainless-Steel/US-3219-EQUAL.jpg', pdf: '/Sink/Stainless-Steel/US-3219 EQUAL.pdf' }
 ];
 
 const ceramicSinks = [
-  { name: 'US 1714W', pdf: '/Sink/Ceramic/US-1714W.pdf' },
-  { name: 'US 1812', pdf: '/Sink/Ceramic/US-1812.pdf' },
-  { name: 'Ceramic White', pdf: '/Sink/Ceramic/US-Ceramic-White.pdf' }
+  { name: 'US 1714W', image: '/Sink/Ceramic/US-1714W.jpg', pdf: '/Sink/Ceramic/US-1714W.pdf' },
+  { name: 'US 1812', image: '/Sink/Ceramic/US-1812.jpg', pdf: '/Sink/Ceramic/US-1812.pdf' },
+  { name: 'Ceramic White', image: '/Sink/Ceramic/US-Ceramic-White.jpg', pdf: '/Sink/Ceramic/US-Ceramic-White.pdf' }
 ];
 
 function loadStones(category) {
@@ -128,19 +128,14 @@ function loadSinks(category) {
   grid.innerHTML = '';
   const sinks = category === 'stainless' ? stainlessSteelSinks : ceramicSinks;
 
-  const sinkSvg = `
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <path d="M18 4h-2V3c0-.55-.45-1-1-1s-1 .45-1 1v1h-4V3c0-.55-.45-1-1-1s-1 .45-1 1v1H6C4.34 4 3 5.34 3 7v2c0 2.76 2.24 5 5 5v5c0 1.1.9 2 2 2h4c1.1 0 2-.9 2-2v-5c2.76 0 5-2.24 5-5V7c0-1.66-1.34-3-3-3zm1 5c0 1.65-1.35 3-3 3H8c-1.65 0-3-1.35-3-3V7c0-.55.45-1 1-1h12c.55 0 1 .45 1 1v2z"/>
-      <circle cx="12" cy="17" r="1"/>
-    </svg>
-  `;
-
   sinks.forEach(sink => {
     const item = document.createElement('div');
     item.className = 'sink-item';
     item.innerHTML = `
       <a href="${sink.pdf}" target="_blank" rel="noopener noreferrer" class="sink-link" aria-label="View ${sink.name} specifications">
-        <div class="sink-icon">${sinkSvg}</div>
+        <div class="sink-image-container">
+          <img src="${sink.image}" alt="${sink.name}" loading="lazy" onerror="this.style.opacity=0.3">
+        </div>
         <div class="sink-name">${sink.name}</div>
       </a>
     `;
