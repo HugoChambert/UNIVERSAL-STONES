@@ -402,9 +402,9 @@ body {
   background:
     radial-gradient(
       250px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-      rgba(212, 175, 55, 0.9),
-      rgba(212, 175, 55, 0.4) 40%,
-      rgba(212, 175, 55, 0.1) 70%,
+      rgba(212, 175, 55, 1),
+      rgba(212, 175, 55, 0.7) 40%,
+      rgba(212, 175, 55, 0.3) 70%,
       transparent 100%
     );
   mask: linear-gradient(#fff 0 0) content-box,
@@ -419,7 +419,8 @@ body {
 
 .stone-item:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+  box-shadow: 0 10px 40px rgba(212, 175, 55, 0.6),
+              0 0 20px rgba(212, 175, 55, 0.4);
 }
 
 .stone-image-container {
