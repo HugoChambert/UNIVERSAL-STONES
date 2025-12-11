@@ -176,7 +176,7 @@ function loadSinks(category) {
     item.className = 'sink-item';
     item.innerHTML = `
       <a href="${sink.pdf}" target="_blank" class="sink-link">
-        <div class="sink-icon">📄</div>
+        <div class="sink-icon">◆</div>
         <div class="sink-name">${sink.name}</div>
       </a>
     `;
@@ -231,5 +231,16 @@ document.addEventListener('DOMContentLoaded', () => {
         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     });
+  });
+
+  document.addEventListener('mousemove', (e) => {
+    const target = e.target.closest('.stone-item, .sink-item');
+    if (target) {
+      const rect = target.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+      target.style.setProperty('--mouse-x', `${x}%`);
+      target.style.setProperty('--mouse-y', `${y}%`);
+    }
   });
 });

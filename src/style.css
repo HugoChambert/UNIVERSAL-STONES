@@ -387,10 +387,34 @@ body {
   overflow: hidden;
 }
 
+.stone-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 1;
+  background: radial-gradient(
+    600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(212, 175, 55, 0.15),
+    transparent 40%
+  );
+}
+
+.stone-item:hover::before {
+  opacity: 1;
+}
+
 .stone-item:hover {
   border-color: var(--color-gold);
   transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2),
+              0 0 50px rgba(212, 175, 55, 0.1);
 }
 
 .stone-image-container {
@@ -450,6 +474,16 @@ body {
   border-top: 3px solid var(--color-red);
 }
 
+.sink-title::before {
+  content: '◆';
+  display: inline-block;
+  margin-right: 1rem;
+  color: var(--color-gold);
+  font-size: 0.8em;
+  transform: rotate(0deg);
+  transition: transform 0.3s ease;
+}
+
 .sinks-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -457,6 +491,7 @@ body {
 }
 
 .sink-item {
+  position: relative;
   background: var(--color-gray-light);
   border-radius: 10px;
   overflow: hidden;
@@ -464,13 +499,39 @@ body {
   border: 2px solid var(--color-gray-light);
 }
 
+.sink-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 1;
+  background: radial-gradient(
+    600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(212, 175, 55, 0.15),
+    transparent 40%
+  );
+}
+
+.sink-item:hover::before {
+  opacity: 1;
+}
+
 .sink-item:hover {
   border-color: var(--color-gold);
   transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2),
+              0 0 50px rgba(212, 175, 55, 0.1);
 }
 
 .sink-link {
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -483,14 +544,21 @@ body {
 }
 
 .sink-link:hover {
-  background: var(--color-red-dark);
+  background: rgba(139, 0, 0, 0.3);
 }
 
 .sink-icon {
   font-size: 4rem;
   margin-bottom: 1rem;
-  filter: grayscale(100%);
-  opacity: 0.8;
+  color: var(--color-gold);
+  opacity: 0.9;
+  transition: all 0.3s ease;
+}
+
+.sink-link:hover .sink-icon {
+  color: var(--color-gold-light);
+  opacity: 1;
+  transform: scale(1.1);
 }
 
 .sink-name {
