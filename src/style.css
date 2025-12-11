@@ -593,6 +593,36 @@ body {
   padding: 2rem;
 }
 
+.news-item {
+  background: var(--color-gray-light);
+  border-left: 4px solid var(--color-gold);
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 800px;
+  border-radius: 8px;
+}
+
+.news-date {
+  font-size: 0.9rem;
+  color: var(--color-gold);
+  font-weight: 500;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.news-item h3 {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  color: var(--color-gold);
+  margin-bottom: 1rem;
+}
+
+.news-item p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--color-white);
+}
+
 .footer {
   background: var(--color-black);
   border-top: 2px solid var(--color-red);
@@ -919,6 +949,7 @@ body {
   font-size: 3.5rem;
   color: var(--color-gold);
   margin-bottom: 1rem;
+  padding-top: 3rem;
 }
 
 .page-subtitle {
