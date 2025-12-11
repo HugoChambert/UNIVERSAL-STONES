@@ -133,29 +133,9 @@ function loadSinks(category) {
     item.className = 'sink-item';
     item.innerHTML = `
       <a href="${sink.pdf}" target="_blank" rel="noopener noreferrer" class="sink-link" aria-label="View ${sink.name} specifications">
-        <div class="sink-image-container">
-          <img src="${sink.image}" alt="${sink.name}" loading="lazy">
-          <div class="sink-placeholder">
-            <div class="sink-placeholder-text">${sink.name}</div>
-            <div class="sink-placeholder-subtext">Click to view specifications</div>
-          </div>
-        </div>
         <div class="sink-name">${sink.name}</div>
       </a>
     `;
-
-    const img = item.querySelector('img');
-    const placeholder = item.querySelector('.sink-placeholder');
-
-    img.addEventListener('error', () => {
-      img.style.display = 'none';
-      placeholder.style.display = 'flex';
-    });
-
-    img.addEventListener('load', () => {
-      placeholder.style.display = 'none';
-    });
-
     grid.appendChild(item);
   });
 }

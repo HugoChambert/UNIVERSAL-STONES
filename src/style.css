@@ -592,61 +592,12 @@ img {
   padding: 2rem;
   text-decoration: none;
   color: var(--color-white);
-  min-height: 200px;
+  min-height: 100px;
   transition: all 0.3s ease;
 }
 
 .sink-link:hover {
   background: transparent;
-}
-
-.sink-image-container {
-  width: 100%;
-  height: 180px;
-  overflow: hidden;
-  border-radius: 8px;
-  margin-bottom: 1rem;
-  background: rgba(0, 0, 0, 0.3);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-
-.sink-image-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  transition: transform 0.3s ease;
-  padding: 1rem;
-}
-
-.sink-link:hover .sink-image-container img {
-  transform: scale(1.05);
-}
-
-.sink-placeholder {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, rgba(40, 40, 40, 0.95), rgba(20, 20, 20, 0.95));
-  padding: 1.5rem;
-  text-align: center;
-}
-
-.sink-placeholder-text {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: var(--color-gold-light);
-  margin-bottom: 0.5rem;
-}
-
-.sink-placeholder-subtext {
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.6);
 }
 
 .sink-name {
