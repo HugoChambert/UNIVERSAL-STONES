@@ -253,6 +253,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const ctx = canvas.getContext('2d');
     let particles = [];
     let animationId;
+    let mouse = { x: null, y: null, radius: 150 };
 
     function resizeCanvas() {
       canvas.width = heroSection.offsetWidth;
@@ -262,23 +263,63 @@ document.addEventListener('DOMContentLoaded', () => {
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
+    heroSection.addEventListener('mousemove', (e) => {
+      const rect = heroSection.getBoundingClientRect();
+      mouse.x = e.clientX - rect.left;
+      mouse.y = e.clientY - rect.top;
+    });
+
+    heroSection.addEventListener('mouseleave', () => {
+      mouse.x = null;
+      mouse.y = null;
+    });
+
     class Particle {
       constructor() {
         this.reset();
+        this.baseSpeedX = Math.random() * 0.5 - 0.25;
+        this.baseSpeedY = Math.random() * -0.5 - 0.2;
       }
 
       reset() {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
         this.size = Math.random() * 3 + 1;
-        this.speedX = Math.random() * 0.5 - 0.25;
-        this.speedY = Math.random() * -0.5 - 0.2;
+        this.baseSpeedX = Math.random() * 0.5 - 0.25;
+        this.baseSpeedY = Math.random() * -0.5 - 0.2;
+        this.speedX = this.baseSpeedX;
+        this.speedY = this.baseSpeedY;
         this.opacity = Math.random() * 0.5 + 0.3;
         this.life = Math.random() * 200 + 100;
         this.maxLife = this.life;
       }
 
       update() {
+        if (mouse.x !== null && mouse.y !== null) {
+          const dx = mouse.x - this.x;
+          const dy = mouse.y - this.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+
+          if (distance < mouse.radius) {
+            const force = (mouse.radius - distance) / mouse.radius;
+            const angle = Math.atan2(dy, dx);
+
+            this.speedX = this.baseSpeedX - Math.cos(angle) * force * 3;
+            this.speedY = this.baseSpeedY - Math.sin(angle) * force * 3;
+
+            this.opacity = Math.min(1, this.opacity + force * 0.5);
+            this.size = Math.min(6, this.size + force * 2);
+          } else {
+            this.speedX += (this.baseSpeedX - this.speedX) * 0.1;
+            this.speedY += (this.baseSpeedY - this.speedY) * 0.1;
+            this.opacity = Math.max(Math.random() * 0.5 + 0.3, this.opacity - 0.02);
+            this.size = Math.max(Math.random() * 3 + 1, this.size - 0.1);
+          }
+        } else {
+          this.speedX = this.baseSpeedX;
+          this.speedY = this.baseSpeedY;
+        }
+
         this.x += this.speedX;
         this.y += this.speedY;
         this.life--;
