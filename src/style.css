@@ -613,6 +613,17 @@ body {
   color: var(--color-gold-light);
 }
 
+.footer-copyright .warranty-link {
+  color: var(--color-gold);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  margin-left: 0.25rem;
+}
+
+.footer-copyright .warranty-link:hover {
+  color: var(--color-gold-light);
+}
+
 .social-links {
   display: flex;
   gap: 1.5rem;
@@ -637,6 +648,54 @@ body {
   height: 24px;
 }
 
+.proud-member-section {
+  margin-top: 4rem;
+  padding: 3rem 0;
+  border-top: 2px solid var(--color-gold);
+}
+
+.proud-member-section .section-title {
+  text-align: center;
+  color: var(--color-gold);
+  margin-bottom: 2.5rem;
+  font-size: 2rem;
+  font-family: var(--font-heading);
+}
+
+.member-logos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.member-logo-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: var(--color-gray-light);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  border: 2px solid var(--color-gray-light);
+  min-height: 120px;
+}
+
+.member-logo-item:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-gold);
+  box-shadow: 0 5px 20px rgba(212, 175, 55, 0.2);
+}
+
+.logo-placeholder {
+  text-align: center;
+  color: var(--color-gold-light);
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
 @media (max-width: 768px) {
   .mobile-menu-toggle {
     display: flex;
@@ -656,6 +715,11 @@ body {
   }
 
   .notable-projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .member-logos {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
