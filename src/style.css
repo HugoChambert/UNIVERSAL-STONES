@@ -22,6 +22,22 @@ body {
   background-color: var(--color-black);
   color: var(--color-white);
   line-height: 1.6;
+  overflow-x: hidden;
+}
+
+*:focus-visible {
+  outline: 3px solid var(--color-gold);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+::selection {
+  background-color: var(--color-gold);
+  color: var(--color-black);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 .navbar {
@@ -188,6 +204,11 @@ body {
   transform: translateY(-3px);
   box-shadow: 0 10px 30px rgba(196, 30, 58, 0.4);
   background: linear-gradient(135deg, var(--color-red-dark) 0%, var(--color-red) 100%);
+}
+
+.cta-button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 15px rgba(196, 30, 58, 0.3);
 }
 
 @keyframes fadeInUp {
@@ -363,10 +384,18 @@ body {
   transform: translateY(-2px);
 }
 
+.category-btn:active {
+  transform: translateY(0);
+}
+
 .category-btn.active {
   background: linear-gradient(135deg, var(--color-red) 0%, var(--color-red-dark) 100%);
   border-color: var(--color-gold);
   box-shadow: 0 5px 20px rgba(196, 30, 58, 0.3);
+}
+
+button, a {
+  -webkit-tap-highlight-color: rgba(212, 175, 55, 0.3);
 }
 
 .stones-grid {
@@ -435,7 +464,19 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  transition: transform 0.5s ease, opacity 0.3s ease;
+  display: block;
+  background: var(--color-gray-light);
+}
+
+.stone-item img:not([src]),
+.stone-item img[src=""] {
+  opacity: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
   display: block;
 }
 
@@ -520,9 +561,9 @@ body {
   background:
     radial-gradient(
       250px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-      rgba(212, 175, 55, 0.9),
-      rgba(212, 175, 55, 0.4) 40%,
-      rgba(212, 175, 55, 0.1) 70%,
+      rgba(212, 175, 55, 1),
+      rgba(212, 175, 55, 0.7) 40%,
+      rgba(212, 175, 55, 0.3) 70%,
       transparent 100%
     );
   mask: linear-gradient(#fff 0 0) content-box,
@@ -537,7 +578,8 @@ body {
 
 .sink-item:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+  box-shadow: 0 10px 40px rgba(212, 175, 55, 0.6),
+              0 0 20px rgba(212, 175, 55, 0.4);
 }
 
 .sink-link {

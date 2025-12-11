@@ -103,6 +103,8 @@ const ceramicSinks = [
 
 function loadStones(category) {
   const grid = document.getElementById('stones-grid');
+  if (!grid) return;
+
   grid.innerHTML = '';
   const stones = category === 'granite' ? graniteStones : marbleStones;
 
@@ -111,7 +113,7 @@ function loadStones(category) {
     item.className = 'stone-item';
     item.innerHTML = `
       <div class="stone-image-container">
-        <img src="${stone.image}" alt="${stone.name}" loading="lazy">
+        <img src="${stone.image}" alt="${stone.name}" loading="lazy" onerror="this.style.opacity=0.5">
       </div>
       <div class="stone-name">${stone.name}</div>
     `;
@@ -121,6 +123,8 @@ function loadStones(category) {
 
 function loadSinks(category) {
   const grid = document.getElementById('sinks-grid');
+  if (!grid) return;
+
   grid.innerHTML = '';
   const sinks = category === 'stainless' ? stainlessSteelSinks : ceramicSinks;
 
@@ -128,7 +132,7 @@ function loadSinks(category) {
     const item = document.createElement('div');
     item.className = 'sink-item';
     item.innerHTML = `
-      <a href="${sink.pdf}" target="_blank" class="sink-link">
+      <a href="${sink.pdf}" target="_blank" rel="noopener noreferrer" class="sink-link" aria-label="View ${sink.name} specifications">
         <div class="sink-icon">▭</div>
         <div class="sink-name">${sink.name}</div>
       </a>
@@ -160,6 +164,8 @@ function initScrollAnimations() {
 
 function updateNavbarOnScroll() {
   const navbar = document.querySelector('.navbar');
+  if (!navbar) return;
+
   let lastScroll = 0;
 
   window.addEventListener('scroll', () => {
@@ -172,7 +178,7 @@ function updateNavbarOnScroll() {
     }
 
     lastScroll = currentScroll;
-  });
+  }, { passive: true });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -204,17 +210,19 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
   const navMenu = document.querySelector('.nav-menu');
 
-  mobileMenuToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-    mobileMenuToggle.classList.toggle('active');
-  });
-
-  document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-      navMenu.classList.remove('active');
-      mobileMenuToggle.classList.remove('active');
+  if (mobileMenuToggle && navMenu) {
+    mobileMenuToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      mobileMenuToggle.classList.toggle('active');
     });
-  });
+
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        mobileMenuToggle.classList.remove('active');
+      });
+    });
+  }
 
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
