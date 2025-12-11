@@ -1047,3 +1047,110 @@ body {
     padding: 1.5rem;
   }
 }
+
+.warranty-page {
+  min-height: 100vh;
+  background: var(--color-black);
+}
+
+.warranty-hero {
+  background: linear-gradient(135deg, var(--color-gray) 0%, var(--color-black) 100%);
+  padding: 8rem 0 4rem;
+  text-align: center;
+  border-bottom: 3px solid var(--color-gold);
+}
+
+.warranty-content-section {
+  padding: 5rem 0;
+}
+
+.warranty-card-main {
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--color-gray);
+  border: 2px solid var(--color-gold);
+  border-radius: 12px;
+  padding: 3rem;
+}
+
+.warranty-card-main h2 {
+  font-family: var(--font-heading);
+  color: var(--color-gold);
+  font-size: 2.2rem;
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.warranty-details h3 {
+  font-family: var(--font-heading);
+  color: var(--color-gold);
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.warranty-details p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.warranty-details ul {
+  list-style: disc;
+  margin-left: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.warranty-details ul ul {
+  list-style: circle;
+  margin-left: 2rem;
+  margin-top: 0.5rem;
+}
+
+.warranty-details li {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 0.5rem;
+}
+
+.warranty-details .contact-info {
+  background: var(--color-gray-light);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid var(--color-gold);
+  margin-top: 1rem;
+}
+
+.warranty-details .contact-info p {
+  margin-bottom: 0.5rem;
+}
+
+.warranty-details .contact-info a {
+  color: var(--color-gold);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.warranty-details .contact-info a:hover {
+  color: var(--color-red);
+}
+
+@media (max-width: 768px) {
+  .warranty-card-main {
+    padding: 2rem 1.5rem;
+  }
+
+  .warranty-card-main h2 {
+    font-size: 1.8rem;
+  }
+
+  .warranty-details h3 {
+    font-size: 1.3rem;
+  }
+
+  .warranty-details ul {
+    margin-left: 1.5rem;
+  }
+}
