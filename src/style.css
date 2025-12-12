@@ -309,7 +309,7 @@ html {
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
   padding: 1.5rem;
-  background: var(--color-gray);
+  background: transparent;
   max-height: 650px;
 }
 
@@ -470,7 +470,7 @@ html {
   margin: 0 auto;
   overflow: hidden;
   border-radius: 12px;
-  background: var(--color-gray);
+  background: transparent;
 }
 
 .slides-wrapper {
@@ -494,7 +494,7 @@ html {
   height: 500px;
   object-fit: contain;
   border-radius: 12px;
-  background: var(--color-gray);
+  background: transparent;
 }
 
 @keyframes fadeSlide {
@@ -542,7 +542,7 @@ html {
 .slide-dots {
   text-align: center;
   padding: 1.5rem 0;
-  background: var(--color-gray);
+  background: transparent;
   border-radius: 0 0 12px 12px;
 }
 
