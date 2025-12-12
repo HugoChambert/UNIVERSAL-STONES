@@ -1,25 +1,25 @@
-import './style.css';
+// Removed CSS import - CSS is loaded via <link> tag in HTML
 
 const interiorImages = [
-  '/pic/Interior/1.jpg',
-  '/pic/Interior/2.jpg',
-  '/pic/Interior/3.jpg',
-  '/pic/Interior/4.jpg',
-  '/pic/Interior/5.webp',
-  '/pic/Interior/6.jpg',
-  '/pic/Interior/7.jpg',
-  '/pic/Interior/8.jpg',
-  '/pic/Interior/9.jpg',
-  '/pic/Interior/10.webp'
+  './pic/Interior/1.jpg',
+  './pic/Interior/2.jpg',
+  './pic/Interior/3.jpg',
+  './pic/Interior/4.jpg',
+  './pic/Interior/5.webp',
+  './pic/Interior/6.jpg',
+  './pic/Interior/7.jpg',
+  './pic/Interior/8.jpg',
+  './pic/Interior/9.jpg',
+  './pic/Interior/10.webp'
 ];
 
 const notableProjects = [
-  { name: 'Annex', image: '/pic/Exterior/Annex Exterior.jpeg' },
-  { name: 'Boro', image: '/pic/Exterior/Boro.jpg' },
-  { name: 'Millcreek', image: '/pic/Exterior/Millcreek Exterior 2.jpg' },
-  { name: 'Old Georgetown', image: '/pic/Exterior/Old Georgetown Exterior.jpeg' },
-  { name: 'Parcel 8', image: '/pic/Exterior/PARCEL8.jpg' },
-  { name: 'The Wharf', image: '/pic/Exterior/warf.jpg' }
+  { name: 'Annex', image: './pic/Exterior/Annex Exterior.jpeg' },
+  { name: 'Boro', image: './pic/Exterior/Boro.jpg' },
+  { name: 'Millcreek', image: './pic/Exterior/Millcreek Exterior 2.jpg' },
+  { name: 'Old Georgetown', image: './pic/Exterior/Old Georgetown Exterior.jpeg' },
+  { name: 'Parcel 8', image: './pic/Exterior/PARCEL8.jpg' },
+  { name: 'The Wharf', image: './pic/Exterior/warf.jpg' }
 ];
 
 function loadInteriorGallery() {
