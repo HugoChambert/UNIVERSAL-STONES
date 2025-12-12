@@ -148,25 +148,58 @@ function loadSinks(category) {
 
 function initScrollAnimations() {
   const observerOptions = {
-    threshold: 0.15,
-    rootMargin: '0px 0px -80px 0px'
+    threshold: 0.1,
+    rootMargin: '0px 0px -100px 0px'
   };
 
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, index) => {
+    entries.forEach((entry) => {
       if (entry.isIntersecting) {
+        const delay = parseFloat(entry.target.dataset.delay || 0);
         setTimeout(() => {
           entry.target.classList.add('animate-in');
-        }, index * 50);
+        }, delay);
         observer.unobserve(entry.target);
       }
     });
   }, observerOptions);
 
-  document.querySelectorAll('.section, .feature-card, .stat-item, .project-card, .stone-item, .sink-item, .member-logo').forEach((el, index) => {
+  document.querySelectorAll('.section, .feature-card, .stat-item, .project-card, .stone-item, .sink-item, .member-logo, .category-btn, .section-title, .hero-title, .hero-subtitle, .cta-button').forEach((el, index) => {
     el.classList.add('scroll-animate');
-    el.style.transitionDelay = `${index * 0.03}s`;
+    el.dataset.delay = index * 40;
     observer.observe(el);
+  });
+}
+
+function initParallaxEffects() {
+  const parallaxElements = document.querySelectorAll('.hero-content, .section-title');
+
+  window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+
+    parallaxElements.forEach(el => {
+      const speed = el.classList.contains('hero-content') ? 0.5 : 0.3;
+      const yPos = -(scrolled * speed);
+      el.style.transform = `translateY(${yPos}px)`;
+    });
+  }, { passive: true });
+}
+
+function initRevealOnScroll() {
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.animation = 'revealScale 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards';
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.2,
+    rootMargin: '0px 0px -50px 0px'
+  });
+
+  document.querySelectorAll('.stones-grid, .sinks-grid, .stone-categories, .sink-categories').forEach(el => {
+    revealObserver.observe(el);
   });
 }
 
@@ -193,6 +226,8 @@ document.addEventListener('DOMContentLoaded', () => {
   loadStones('granite');
   loadSinks('stainless');
   initScrollAnimations();
+  initParallaxEffects();
+  initRevealOnScroll();
   updateNavbarOnScroll();
 
   const stoneCategoryButtons = document.querySelectorAll('[data-category]');
@@ -250,23 +285,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const y = ((e.clientY - rect.top) / rect.height) * 100;
       target.style.setProperty('--mouse-x', `${x}%`);
       target.style.setProperty('--mouse-y', `${y}%`);
-
-      const centerX = rect.left + rect.width / 2;
-      const centerY = rect.top + rect.height / 2;
-      const deltaX = (e.clientX - centerX) / (rect.width / 2);
-      const deltaY = (e.clientY - centerY) / (rect.height / 2);
-
-      const tiltX = deltaY * 5;
-      const tiltY = -deltaX * 5;
-
-      target.style.transform = `translateY(-10px) scale(1.02) perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
-    }
-  });
-
-  document.addEventListener('mouseleave', (e) => {
-    const target = e.target.closest('.stone-item, .sink-item');
-    if (target) {
-      target.style.transform = '';
     }
   });
 
