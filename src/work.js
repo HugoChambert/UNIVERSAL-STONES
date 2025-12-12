@@ -163,14 +163,16 @@ function loadNotableProjects() {
           <p class="notable-project-description">${project.description}</p>
           <p class="notable-project-details">${project.details}</p>
 
-          <div class="notable-awards">
-            <h4>Awards & Recognition</h4>
-            <ul>${awardsHTML}</ul>
-          </div>
+          <div class="notable-highlights">
+            <div class="notable-awards">
+              <h4>Awards & Recognition</h4>
+              <ul>${awardsHTML}</ul>
+            </div>
 
-          <div class="notable-facts">
-            <h4>Project Highlights</h4>
-            <ul>${factsHTML}</ul>
+            <div class="notable-facts">
+              <h4>Project Highlights</h4>
+              <ul>${factsHTML}</ul>
+            </div>
           </div>
         </div>
       </div>

@@ -287,8 +287,38 @@ html {
   margin-top: 80px;
 }
 
+.work-intro {
+  text-align: center;
+  font-size: 1.2rem;
+  color: var(--color-gold-light);
+  max-width: 700px;
+  margin: 1.5rem auto 4rem;
+  line-height: 1.8;
+}
+
+.work-divider {
+  text-align: center;
+  margin: 5rem 0 3rem;
+  padding: 2rem 0;
+  border-top: 1px solid var(--color-gray-light);
+  border-bottom: 1px solid var(--color-gray-light);
+}
+
+.work-section-title {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  color: var(--color-gold);
+  margin-bottom: 0.5rem;
+}
+
+.work-section-subtitle {
+  font-size: 1.1rem;
+  color: var(--color-gold-light);
+  font-weight: 300;
+}
+
 .notable-projects-grid {
-  margin-bottom: 4rem;
+  margin-bottom: 5rem;
 }
 
 .notable-slideshow {
@@ -305,77 +335,99 @@ html {
 }
 
 .notable-slide-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  padding: 2rem;
   background: transparent;
-  max-height: 650px;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 .notable-slide-image {
   position: relative;
   border-radius: 12px;
   overflow: hidden;
-  border: 2px solid var(--color-gold);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  border: 3px solid var(--color-gold);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
 }
 
 .notable-slide-image img {
   width: 100%;
-  height: 100%;
-  max-height: 600px;
+  height: auto;
+  max-height: 500px;
   object-fit: cover;
-  border-radius: 10px;
+  display: block;
 }
 
 .notable-slide-info {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  padding: 0.5rem 0;
-  overflow-y: hidden;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background: rgba(26, 26, 26, 0.6);
+  border-radius: 12px;
+  border: 2px solid var(--color-gray-light);
 }
 
 .notable-project-title {
   font-family: var(--font-heading);
-  font-size: 2rem;
+  font-size: 2.5rem;
   color: var(--color-gold);
-  margin-bottom: 0.3rem;
-  border-bottom: 2px solid var(--color-red);
-  padding-bottom: 0.3rem;
+  margin-bottom: 0.5rem;
   line-height: 1.2;
+  text-align: center;
 }
 
 .notable-project-description {
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: var(--color-white);
-  line-height: 1.5;
-  font-weight: 500;
+  line-height: 1.8;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .notable-project-details {
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: var(--color-gold-light);
-  line-height: 1.5;
+  line-height: 1.8;
+  padding: 1.5rem;
+  background: rgba(74, 74, 74, 0.3);
+  border-radius: 8px;
+  border-left: 4px solid var(--color-gold);
+}
+
+.notable-highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
 }
 
 .notable-awards,
 .notable-facts {
-  background: var(--color-gray-light);
-  padding: 1rem;
-  border-radius: 8px;
-  border-left: 3px solid var(--color-gold);
+  background: rgba(26, 26, 26, 0.8);
+  padding: 1.5rem;
+  border-radius: 10px;
+  border: 2px solid var(--color-gray-light);
+  transition: all 0.3s ease;
+}
+
+.notable-awards:hover,
+.notable-facts:hover {
+  border-color: var(--color-gold);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2);
 }
 
 .notable-awards h4,
 .notable-facts h4 {
   font-family: var(--font-heading);
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   color: var(--color-gold);
-  margin-bottom: 0.7rem;
+  margin-bottom: 1rem;
+  text-align: center;
 }
 
 .notable-awards ul,
@@ -387,28 +439,29 @@ html {
 
 .notable-awards li,
 .notable-facts li {
-  padding: 0.3rem 0;
+  padding: 0.6rem 0;
   color: var(--color-white);
-  font-size: 0.9rem;
-  line-height: 1.4;
+  font-size: 0.95rem;
+  line-height: 1.6;
   position: relative;
-  padding-left: 1.5rem;
+  padding-left: 1.8rem;
 }
 
 .notable-awards li::before {
   content: '🏆';
   position: absolute;
   left: 0;
-  top: 0.5rem;
+  top: 0.6rem;
 }
 
 .notable-facts li::before {
   content: '✓';
   position: absolute;
   left: 0;
-  top: 0.5rem;
+  top: 0.6rem;
   color: var(--color-gold);
   font-weight: bold;
+  font-size: 1.1rem;
 }
 
 .notable-project-item {
@@ -461,7 +514,7 @@ html {
 }
 
 .gallery-grid {
-  margin-bottom: 4rem;
+  margin-bottom: 5rem;
 }
 
 .slideshow-container {
@@ -1120,16 +1173,32 @@ img {
     border-bottom: 2px solid var(--color-red);
   }
 
+  .work-intro {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+
+  .work-divider {
+    margin: 3rem 0 2rem;
+    padding: 1.5rem 0;
+  }
+
+  .work-section-title {
+    font-size: 2rem;
+  }
+
+  .work-section-subtitle {
+    font-size: 1rem;
+  }
+
   .notable-projects-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
 
   .notable-slide-content {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 2rem;
     padding: 1.5rem;
-    max-height: none;
   }
 
   .notable-slide-image img {
@@ -1137,19 +1206,35 @@ img {
   }
 
   .notable-slide-info {
-    overflow-y: visible;
+    padding: 1.2rem;
   }
 
   .notable-project-title {
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
 
   .notable-project-description {
-    font-size: 0.95rem;
+    font-size: 1rem;
   }
 
   .notable-project-details {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
+    padding: 1.2rem;
+  }
+
+  .notable-highlights {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .notable-awards,
+  .notable-facts {
+    padding: 1.2rem;
+  }
+
+  .notable-awards h4,
+  .notable-facts h4 {
+    font-size: 1.2rem;
   }
 
   .slide-nav {
@@ -1242,37 +1327,46 @@ img {
     height: 50px;
   }
 
+  .work-section-title {
+    font-size: 1.8rem;
+  }
+
+  .work-section-subtitle {
+    font-size: 0.95rem;
+  }
+
   .notable-slide-content {
     padding: 1rem;
-    gap: 1rem;
+    gap: 1.5rem;
   }
 
   .notable-project-title {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
   }
 
   .notable-project-description {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
   }
 
   .notable-project-details {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
+    padding: 1rem;
   }
 
   .notable-awards,
   .notable-facts {
-    padding: 0.8rem;
+    padding: 1rem;
   }
 
   .notable-awards h4,
   .notable-facts h4 {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 
   .notable-awards li,
   .notable-facts li {
-    font-size: 0.85rem;
-    padding: 0.2rem 0;
+    font-size: 0.9rem;
+    padding: 0.5rem 0;
   }
 
   .slide-nav {
