@@ -307,9 +307,10 @@ html {
 .notable-slide-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  padding: 2rem;
+  gap: 2rem;
+  padding: 1.5rem;
   background: var(--color-gray);
+  max-height: 650px;
 }
 
 .notable-slide-image {
@@ -317,12 +318,14 @@ html {
   border-radius: 12px;
   overflow: hidden;
   border: 2px solid var(--color-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .notable-slide-image img {
   width: 100%;
   height: 100%;
-  min-height: 400px;
   max-height: 600px;
   object-fit: cover;
   border-radius: 10px;
@@ -331,48 +334,48 @@ html {
 .notable-slide-info {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  padding: 1rem 0;
-  overflow-y: auto;
-  max-height: 600px;
+  gap: 1rem;
+  padding: 0.5rem 0;
+  overflow-y: hidden;
 }
 
 .notable-project-title {
   font-family: var(--font-heading);
-  font-size: 2.5rem;
+  font-size: 2rem;
   color: var(--color-gold);
-  margin-bottom: 0.5rem;
-  border-bottom: 3px solid var(--color-red);
-  padding-bottom: 0.5rem;
+  margin-bottom: 0.3rem;
+  border-bottom: 2px solid var(--color-red);
+  padding-bottom: 0.3rem;
+  line-height: 1.2;
 }
 
 .notable-project-description {
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: var(--color-white);
-  line-height: 1.8;
+  line-height: 1.5;
   font-weight: 500;
 }
 
 .notable-project-details {
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   color: var(--color-gold-light);
-  line-height: 1.8;
+  line-height: 1.5;
 }
 
 .notable-awards,
 .notable-facts {
   background: var(--color-gray-light);
-  padding: 1.5rem;
+  padding: 1rem;
   border-radius: 8px;
-  border-left: 4px solid var(--color-gold);
+  border-left: 3px solid var(--color-gold);
 }
 
 .notable-awards h4,
 .notable-facts h4 {
   font-family: var(--font-heading);
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   color: var(--color-gold);
-  margin-bottom: 1rem;
+  margin-bottom: 0.7rem;
 }
 
 .notable-awards ul,
@@ -384,10 +387,10 @@ html {
 
 .notable-awards li,
 .notable-facts li {
-  padding: 0.5rem 0;
+  padding: 0.3rem 0;
   color: var(--color-white);
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: 0.9rem;
+  line-height: 1.4;
   position: relative;
   padding-left: 1.5rem;
 }
@@ -489,8 +492,9 @@ html {
 .slide img {
   width: 100%;
   height: 500px;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 12px;
+  background: var(--color-black);
 }
 
 @keyframes fadeSlide {
@@ -1123,30 +1127,29 @@ img {
 
   .notable-slide-content {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1.5rem;
     padding: 1.5rem;
+    max-height: none;
   }
 
   .notable-slide-image img {
-    min-height: 300px;
-    max-height: 400px;
+    max-height: 350px;
   }
 
   .notable-slide-info {
-    max-height: none;
     overflow-y: visible;
   }
 
   .notable-project-title {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
 
   .notable-project-description {
-    font-size: 1.1rem;
+    font-size: 0.95rem;
   }
 
   .notable-project-details {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 
   .slide-nav {
@@ -1164,6 +1167,7 @@ img {
 
   .slide img {
     height: 400px;
+    object-fit: contain;
   }
 
   .slides-wrapper {
@@ -1240,20 +1244,35 @@ img {
 
   .notable-slide-content {
     padding: 1rem;
+    gap: 1rem;
   }
 
   .notable-project-title {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
+  }
+
+  .notable-project-description {
+    font-size: 0.9rem;
+  }
+
+  .notable-project-details {
+    font-size: 0.85rem;
   }
 
   .notable-awards,
   .notable-facts {
-    padding: 1rem;
+    padding: 0.8rem;
   }
 
   .notable-awards h4,
   .notable-facts h4 {
-    font-size: 1.1rem;
+    font-size: 1rem;
+  }
+
+  .notable-awards li,
+  .notable-facts li {
+    font-size: 0.85rem;
+    padding: 0.2rem 0;
   }
 
   .slide-nav {
@@ -1263,6 +1282,7 @@ img {
 
   .slide img {
     height: 300px;
+    object-fit: contain;
   }
 
   .slides-wrapper {
@@ -1270,8 +1290,7 @@ img {
   }
 
   .notable-slide-image img {
-    min-height: 250px;
-    max-height: 300px;
+    max-height: 250px;
   }
 }
 
