@@ -494,7 +494,7 @@ html {
   height: 500px;
   object-fit: contain;
   border-radius: 12px;
-  background: var(--color-black);
+  background: var(--color-gray);
 }
 
 @keyframes fadeSlide {
