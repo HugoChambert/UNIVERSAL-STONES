@@ -1,16 +1,9 @@
-const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-const navMenu = document.querySelector('.nav-menu');
+import { initPremiumEffects, initMobileMenu, initNavbarScroll } from './effects.js';
 
-mobileMenuToggle.addEventListener('click', () => {
-  navMenu.classList.toggle('active');
-  mobileMenuToggle.classList.toggle('active');
-});
-
-document.querySelectorAll('.nav-link').forEach(link => {
-  link.addEventListener('click', () => {
-    navMenu.classList.remove('active');
-    mobileMenuToggle.classList.remove('active');
-  });
+document.addEventListener('DOMContentLoaded', () => {
+  initPremiumEffects();
+  initMobileMenu();
+  initNavbarScroll();
 });
 
 const contactForm = document.getElementById('contact-page-form');

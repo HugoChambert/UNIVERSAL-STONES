@@ -1,4 +1,4 @@
-// Removed CSS import - CSS is loaded via <link> tag in HTML
+import { initPremiumEffects, initMobileMenu, initNavbarScroll } from './effects.js';
 
 const interiorImages = [
   './pic/Interior/1.jpg',
@@ -222,21 +222,7 @@ window.goToNotableSlide = goToNotableSlide;
 document.addEventListener('DOMContentLoaded', () => {
   loadInteriorGallery();
   loadNotableProjects();
-
-  const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-  const navMenu = document.querySelector('.nav-menu');
-
-  if (mobileMenuToggle && navMenu) {
-    mobileMenuToggle.addEventListener('click', () => {
-      navMenu.classList.toggle('active');
-      mobileMenuToggle.classList.toggle('active');
-    });
-
-    document.querySelectorAll('.nav-link').forEach(link => {
-      link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-        mobileMenuToggle.classList.remove('active');
-      });
-    });
-  }
+  initPremiumEffects();
+  initMobileMenu();
+  initNavbarScroll();
 });
