@@ -1,10 +1,11 @@
-// EMERGENCY WORKING VERSION - No cursor effects, navbar follows scroll
+// WORKING VERSION - No cursor effects, navbar follows scroll, button hover fixed
 export function initPremiumEffects() {
   initSmoothScrollAnimations();
   initParallaxLayers();
   initTextRevealAnimations();
   initScrollProgressBar();
   initElementReveal();
+  fixButtonHoverIssues(); // NEW: Fix disappearing buttons
 }
 
 function initSmoothScrollAnimations() {
@@ -128,6 +129,63 @@ function initElementReveal() {
     });
     containerObserver.observe(container);
   });
+}
+
+// NEW FUNCTION: Fix button hover issues
+function fixButtonHoverIssues() {
+  // Select all buttons and links that might have hover issues
+  const interactiveElements = document.querySelectorAll(
+    '.cta-button, .category-btn, .nav-link, .career-link, .form-submit-btn, ' +
+    '.warranty-link, .social-links a, .member-logo-item'
+  );
+
+  interactiveElements.forEach(el => {
+    // Remove any inline transform styles that might be stuck
+    el.style.transform = '';
+    
+    // Add proper hover handling that always resets
+    el.addEventListener('mouseenter', () => {
+      // Element will use CSS hover styles
+    });
+    
+    el.addEventListener('mouseleave', () => {
+      // Force reset transform to ensure button returns to normal
+      el.style.transform = '';
+      el.style.transition = 'all 0.3s ease';
+    });
+    
+    // Also reset on mouse movement to catch any edge cases
+    el.addEventListener('mousemove', (e) => {
+      // Prevent any accumulated transforms
+      if (el.style.transform && el.style.transform !== 'none' && !el.matches(':hover')) {
+        el.style.transform = '';
+      }
+    });
+  });
+
+  // Special handling for CTA button to ensure it never disappears
+  const ctaButton = document.querySelector('.cta-button');
+  if (ctaButton) {
+    // Ensure button is always visible
+    ctaButton.style.opacity = '1';
+    ctaButton.style.visibility = 'visible';
+    ctaButton.style.display = 'inline-block';
+    
+    // Remove any problematic event listeners
+    const newButton = ctaButton.cloneNode(true);
+    ctaButton.parentNode.replaceChild(newButton, ctaButton);
+    
+    // Add clean hover behavior
+    newButton.addEventListener('mouseenter', function() {
+      this.style.transform = 'translateY(-5px) scale(1.05)';
+      this.style.transition = 'all 0.3s ease';
+    });
+    
+    newButton.addEventListener('mouseleave', function() {
+      this.style.transform = 'translateY(0) scale(1)';
+      this.style.transition = 'all 0.3s ease';
+    });
+  }
 }
 
 export function initMobileMenu() {
