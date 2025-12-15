@@ -1,19 +1,11 @@
+// EMERGENCY WORKING VERSION - No cursor effects, navbar follows scroll
 export function initPremiumEffects() {
-  // Cursor effects removed - custom cursor and magnetic elements disabled
-  // initCustomCursor();
-  // initMagneticElements();
   initSmoothScrollAnimations();
   initParallaxLayers();
   initTextRevealAnimations();
   initScrollProgressBar();
   initElementReveal();
 }
-
-// Custom cursor function removed - commented out to disable
-// function initCustomCursor() { ... }
-
-// Magnetic elements function removed - commented out to disable
-// function initMagneticElements() { ... }
 
 function initSmoothScrollAnimations() {
   const observerOptions = {
