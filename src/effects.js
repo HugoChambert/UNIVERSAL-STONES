@@ -1,6 +1,7 @@
 export function initPremiumEffects() {
-  initCustomCursor();
-  initMagneticElements();
+  // Cursor effects removed - custom cursor and magnetic elements disabled
+  // initCustomCursor();
+  // initMagneticElements();
   initSmoothScrollAnimations();
   initParallaxLayers();
   initTextRevealAnimations();
@@ -8,95 +9,11 @@ export function initPremiumEffects() {
   initElementReveal();
 }
 
-function initCustomCursor() {
-  if (window.innerWidth < 768) return;
+// Custom cursor function removed - commented out to disable
+// function initCustomCursor() { ... }
 
-  const cursor = document.createElement('div');
-  cursor.className = 'custom-cursor';
-  const cursorDot = document.createElement('div');
-  cursorDot.className = 'cursor-dot';
-  const cursorRing = document.createElement('div');
-  cursorRing.className = 'cursor-ring';
-  const cursorTrail = document.createElement('div');
-  cursorTrail.className = 'cursor-trail';
-
-  cursor.appendChild(cursorDot);
-  cursor.appendChild(cursorRing);
-  cursor.appendChild(cursorTrail);
-  document.body.appendChild(cursor);
-
-  let mouseX = 0, mouseY = 0;
-  let ringX = 0, ringY = 0;
-  let trailX = 0, trailY = 0;
-  let isHovering = false;
-  let isClicking = false;
-
-  document.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-  });
-
-  document.addEventListener('mousedown', () => {
-    isClicking = true;
-    cursor.classList.add('clicking');
-  });
-
-  document.addEventListener('mouseup', () => {
-    isClicking = false;
-    cursor.classList.remove('clicking');
-  });
-
-  const interactiveElements = 'a, button, .stone-item, .sink-item, .category-btn, .nav-link, .career-card, .faq-item, .info-card, .member-logo-item, input, textarea';
-
-  document.querySelectorAll(interactiveElements).forEach(el => {
-    el.addEventListener('mouseenter', () => {
-      isHovering = true;
-      cursor.classList.add('hovering');
-    });
-    el.addEventListener('mouseleave', () => {
-      isHovering = false;
-      cursor.classList.remove('hovering');
-    });
-  });
-
-  function animateCursor() {
-    const ringSpeed = 0.15;
-    const trailSpeed = 0.08;
-
-    ringX += (mouseX - ringX) * ringSpeed;
-    ringY += (mouseY - ringY) * ringSpeed;
-    trailX += (mouseX - trailX) * trailSpeed;
-    trailY += (mouseY - trailY) * trailSpeed;
-
-    cursorDot.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
-    cursorRing.style.transform = `translate(${ringX}px, ${ringY}px)`;
-    cursorTrail.style.transform = `translate(${trailX}px, ${trailY}px)`;
-
-    requestAnimationFrame(animateCursor);
-  }
-
-  animateCursor();
-}
-
-function initMagneticElements() {
-  if (window.innerWidth < 768) return;
-
-  const magneticElements = document.querySelectorAll('.cta-button, .category-btn, .nav-link, .career-link, .form-submit-btn');
-
-  magneticElements.forEach(el => {
-    el.addEventListener('mousemove', (e) => {
-      const rect = el.getBoundingClientRect();
-      const x = e.clientX - rect.left - rect.width / 2;
-      const y = e.clientY - rect.top - rect.height / 2;
-
-      el.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
-    });
-
-    el.addEventListener('mouseleave', () => {
-      el.style.transform = '';
-    });
-  });
-}
+// Magnetic elements function removed - commented out to disable
+// function initMagneticElements() { ... }
 
 function initSmoothScrollAnimations() {
   const observerOptions = {
