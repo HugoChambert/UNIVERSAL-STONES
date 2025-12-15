@@ -1,22 +1,22 @@
 import { initPremiumEffects, initMobileMenu, initNavbarScroll } from './effects.js';
 
 const interiorImages = [
-  './pic/Interior/1.jpg',
-  './pic/Interior/2.jpg',
-  './pic/Interior/3.jpg',
-  './pic/Interior/4.jpg',
-  './pic/Interior/5.webp',
-  './pic/Interior/6.jpg',
-  './pic/Interior/7.jpg',
-  './pic/Interior/8.jpg',
-  './pic/Interior/9.jpg',
-  './pic/Interior/10.webp'
+  '/pic/Interior/1.jpg',
+  '/pic/Interior/2.jpg',
+  '/pic/Interior/3.jpg',
+  '/pic/Interior/4.jpg',
+  '/pic/Interior/5.webp',
+  '/pic/Interior/6.jpg',
+  '/pic/Interior/7.jpg',
+  '/pic/Interior/8.jpg',
+  '/pic/Interior/9.jpg',
+  '/pic/Interior/10.webp'
 ];
 
 const notableProjects = [
   {
     name: 'Annex',
-    image: './pic/Exterior/Annex Exterior.jpeg',
+    image: '/pic/Exterior/Annex Exterior.jpeg',
     description: 'A stunning modern mixed-use development in Washington D.C. featuring premium granite facades and contemporary design.',
     details: 'The Annex represents the perfect blend of functionality and aesthetic excellence. Our team installed over 15,000 square feet of premium granite cladding, creating a sophisticated exterior that stands as a landmark in the neighborhood.',
     awards: ['ABC Excellence in Construction Award 2019', 'NVBIA Best Commercial Project 2019'],
@@ -24,7 +24,7 @@ const notableProjects = [
   },
   {
     name: 'Boro',
-    image: './pic/Exterior/Boro.jpg',
+    image: '/pic/Exterior/Boro.jpg',
     description: 'The Boro is a transformative mixed-use development in Tysons, Virginia, showcasing exceptional stonework throughout its expansive complex.',
     details: 'This landmark project required precision installation of diverse stone materials across multiple buildings. Our team delivered flawless execution on one of the region\'s most ambitious developments, contributing to the revitalization of Tysons Corner.',
     awards: ['HBAV Building Excellence Award 2020', 'Urban Land Institute Award of Excellence'],
@@ -32,7 +32,7 @@ const notableProjects = [
   },
   {
     name: 'Millcreek',
-    image: './pic/Exterior/Millcreek Exterior 2.jpg',
+    image: '/pic/Exterior/Millcreek Exterior 2.jpg',
     description: 'An upscale residential community featuring elegant stone exteriors and high-end interior stonework throughout.',
     details: 'Millcreek exemplifies luxury residential stonework. Each home features custom granite and marble installations, from stunning kitchen countertops to sophisticated bathroom vanities. The exterior stonework creates a cohesive, premium aesthetic throughout the community.',
     awards: ['Best Residential Community Design 2021'],
@@ -40,7 +40,7 @@ const notableProjects = [
   },
   {
     name: 'Old Georgetown',
-    image: './pic/Exterior/Old Georgetown Exterior.jpeg',
+    image: '/pic/Exterior/Old Georgetown Exterior.jpeg',
     description: 'A prestigious commercial development in historic Georgetown, blending traditional elegance with modern luxury.',
     details: 'Old Georgetown required meticulous attention to historic preservation guidelines while delivering contemporary functionality. Our stone installations honor the area\'s heritage while providing modern durability and aesthetic appeal.',
     awards: ['Historic Preservation Award 2020', 'Georgetown Design Excellence Award'],
@@ -48,7 +48,7 @@ const notableProjects = [
   },
   {
     name: 'Parcel 8',
-    image: './pic/Exterior/PARCEL8.jpg',
+    image: '/pic/Exterior/PARCEL8.jpg',
     description: 'A cutting-edge urban development featuring striking modern architecture and innovative stone applications.',
     details: 'Parcel 8 pushed the boundaries of contemporary stone installation techniques. The project showcases large-format stone panels and creative applications that create a dramatic urban presence while maintaining the highest standards of craftsmanship.',
     awards: ['NVBIA Innovation Award 2022', 'Modern Architecture Prize 2022'],
@@ -56,7 +56,7 @@ const notableProjects = [
   },
   {
     name: 'The Wharf',
-    image: './pic/Exterior/warf.jpg',
+    image: '/pic/Exterior/warf.jpg',
     description: 'An iconic waterfront destination along the Potomac River, featuring world-class stonework in a spectacular setting.',
     details: 'The Wharf represents one of Washington D.C.\'s most significant waterfront transformations. Our contribution includes extensive stone installations across multiple buildings, combining durability with aesthetic excellence in a demanding marine environment.',
     awards: ['National Capital Excellence Award 2018', 'Waterfront Development of the Year 2018', 'ABC National Excellence Award'],
