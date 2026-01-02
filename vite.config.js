@@ -3,7 +3,7 @@ import { resolve } from 'path';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 export default defineConfig({
-  base: '/UNIVERSAL-STONES/', // Add this for GitHub Pages
+  base: '/',
   server: {
     port: 3000,
     open: true
